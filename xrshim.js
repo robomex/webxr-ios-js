@@ -1,5 +1,5 @@
 {
-	const REALAPI_URL = 'https://raw.githack.com/MozillaReality/webxr-ios-js/develop/dist/webxr.js';
+	const REALAPI_URL = 'https://raw.githack.com/robomex/webxr-ios-js/master/dist/webxr.js';
 
 	const API = [
 		'XR',
