@@ -960,7 +960,8 @@ export default class ARKitWrapper extends EventTarget {
 		this._anchors.forEach(anchor => { 
 			anchor.clearChanged();
 		});
-		this._onUpdate();
+		window.webkit.messageHandlers.onUpdate.postMessage({});
+		// this._onUpdate();
 	}
 
 	// Core public methods providing AR features to user.

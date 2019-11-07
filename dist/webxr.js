@@ -3786,8 +3786,7 @@ class ARKitWrapper extends EventTarget {
 		this._anchors.forEach(anchor => {
 			anchor.clearChanged();
 		});
-    // this._onUpdate();
-    window.webkit.messageHandlers.onUpdate.postMessage({});
+		window.webkit.messageHandlers.onUpdate.postMessage({});
 	}
 	watch(options=null) {
 		return new Promise((resolve, reject) => {
