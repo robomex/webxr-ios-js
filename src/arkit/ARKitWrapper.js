@@ -945,6 +945,10 @@ export default class ARKitWrapper extends EventTarget {
 		this._rAF_callbackParams = params;
 
 		// if there's data waiting, skip it because we're behind 
+
+		if (this._dataBeforeNext > 0) {
+			this._do_rAF();    
+		}
 	}
 
 	startingRender() {
@@ -960,8 +964,8 @@ export default class ARKitWrapper extends EventTarget {
 		this._anchors.forEach(anchor => { 
 			anchor.clearChanged();
 		});
-		window.webkit.messageHandlers.onUpdate.postMessage({});
-		// this._onUpdate();
+		// window.webkit.messageHandlers.onUpdate.postMessage({});
+		this._onUpdate();
 	}
 
 	// Core public methods providing AR features to user.

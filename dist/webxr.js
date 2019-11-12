@@ -3776,6 +3776,9 @@ class ARKitWrapper extends EventTarget {
 	requestAnimationFrame(callback, ...params) {
 		this._rAF_callback = callback;
 		this._rAF_callbackParams = params;
+		if (this._dataBeforeNext > 0) {
+			this._do_rAF();
+		}
 	}
 	startingRender() {
 		if (this._dataBeforeNext > 1) {
@@ -3786,7 +3789,7 @@ class ARKitWrapper extends EventTarget {
 		this._anchors.forEach(anchor => {
 			anchor.clearChanged();
 		});
-		window.webkit.messageHandlers.onUpdate.postMessage({});
+		this._onUpdate();
 	}
 	watch(options=null) {
 		return new Promise((resolve, reject) => {
